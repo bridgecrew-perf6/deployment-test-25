@@ -43,7 +43,7 @@ function App() {
 
 	//get weather
 	fetch(
-		"http://api.weatherapi.com/v1/forecast.json?key=d17b5c48b8a5444fae6105410222202&q=singapore&days=1&aqi=no&alerts=no"
+		"https://api.weatherapi.com/v1/forecast.json?key=d17b5c48b8a5444fae6105410222202&q=singapore&days=1&aqi=no&alerts=no"
 	)
 		.then((res) => {
 			if (!res.ok) {
