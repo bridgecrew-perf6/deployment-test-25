@@ -5,6 +5,7 @@ import Weather from "./components/Weather";
 import Time from "./components/Time";
 import Countdown from "./components/Countdown";
 import Background from "./components/Background";
+import API from "./components/API";
 
 function App() {
 	const [background, setBackground] = React.useState(
@@ -23,7 +24,7 @@ function App() {
 			</div>
 			<div className="middle">
 				<Time />
-				{/* <Countdown /> */}
+				<Countdown />
 			</div>
 
 			<p id="download">

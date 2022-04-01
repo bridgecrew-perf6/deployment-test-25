@@ -1,30 +1,42 @@
+import React from "react";
 export default function Countdown() {
-	// Set the date we're counting down to
+	// If the count down is finished, write some text
+	// 	if (distance < 0) {
+	// 		clearInterval(x);
+	// 		document.getElementById("countdown").innerHTML = "Allahumma Taqabbal Minna";
+	// 	}
+	// }, 1000);
+
+	const [countdown, setCountdown] = React.useState("");
 	const countDownDate = new Date("Apr 3, 2022 00:00:00").getTime();
-	// console.log(countDownDate);
-	// Update the count down every 1 second
-	const x = setInterval(function () {
-		// Get today's date and time
-		const now = new Date().getTime();
-		// console.log(now);
-		// Find the distance between now and the count down date
-		const distance = countDownDate - now;
-		// console.log(distance);
-		// Time calculations for days, hours, minutes and seconds
-		const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-		// const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		// const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-		// const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+	const now = new Date().getTime();
+	const distance = countDownDate - now;
+	const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+	const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+	const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+	const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-		// Display the result in the element with id="demo"
-		document.getElementById("countdown").innerHTML = days + " days to Ramadan";
-		// days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+	React.useEffect(() => {
+		const interval = setInterval(() => {
+			displayCountdown();
+		}, 1000);
+		return () => {
+			clearInterval(interval);
+		};
+	}, [countdown]);
 
-		// If the count down is finished, write some text
-		if (distance < 0) {
-			clearInterval(x);
-			document.getElementById("countdown").innerHTML = "Allahumma Taqabbal Minna";
-		}
-	}, 1000);
-	return <h2 id="countdown" className="countdown"></h2>;
+	function displayCountdown() {
+		setCountdown(
+			`${days} day(s) 
+			${hours} hour(s) 
+			${minutes} minute(s) and 
+			${seconds} second(s) until Ramadan`
+		);
+	}
+
+	return (
+		<h2 id="countdown" className="countdown">
+			{countdown}
+		</h2>
+	);
 }
