@@ -2,7 +2,7 @@
 	"name": "deployment-test",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://github.com/sheikh-musa/deployment-test",
+	"homepage": "https://sheikh-musa.github.io/deployment-test",
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.16.3",
 		"@testing-library/react": "^12.1.4",
