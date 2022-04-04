@@ -24,14 +24,8 @@ function App() {
 			</div>
 			<div className="middle">
 				<Time />
-				<Countdown />
+				{/* <Countdown /> */}
 			</div>
-
-			<p id="download">
-				<a id="downloadLink" className="downloadLink">
-					download
-				</a>
-			</p>
 		</>
 	);
 }
